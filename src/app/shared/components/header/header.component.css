@@ -1,0 +1,19 @@
+.rick{
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.rick:hover{
+  box-shadow: violet 5px 5px 10px;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform ease 1s 0.2s;
+}
+
+.texto{
+  font-size: 35px;
+  color: rgb(241, 23, 248)
+}
+
+
