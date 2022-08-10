@@ -12,6 +12,7 @@ import { ListaDePersonajesComponent } from './lista-de-personajes.component';
   imports: [
     CommonModule,
     ListaDePersonajesRoutingModule
-  ]
+  ],
+  exports:[ListaDePersonajesComponent]
 })
 export class ListaDePersonajesModule { }

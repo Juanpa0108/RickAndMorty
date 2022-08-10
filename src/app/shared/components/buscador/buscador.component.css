@@ -1,5 +1,9 @@
 .form-control-lg{
+  margin-right: 50px;
+   font-family: arial;
+   font-size: 25px;
+   width: 500px;
+   border-radius: 25px;
+   box-shadow: aquamarine 7px 7px 5px;
 
-    margin-right: 50px;
-
-}
+  }

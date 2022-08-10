@@ -12,6 +12,9 @@ import { DetallesPersonajeComponent } from './detalles-personaje.component';
   imports: [
     CommonModule,
     DetallesPersonajeRoutingModule
+  ],
+  exports:[
+    DetallesPersonajeComponent
   ]
 })
 export class DetallesPersonajeModule { }
