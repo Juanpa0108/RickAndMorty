@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-
+const myDeclaration = [DetallesPersonajeComponent, ListaDePersonajesComponent]
 
 @NgModule({
-  declarations: [ ],
+  declarations: [ ... myDeclaration],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports:[]
+  exports:[... myDeclaration]
 })
 export class PersonajesModule { }

@@ -1,1 +1,27 @@
-<p>lista-de-personajes works!</p>
+<body style="background-color:violet; width:100%; height: 100%;"> <!--Crear los estilos de el fondo-->
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let personaje of personajes">
+    <div class="card" style="width: 250px; height: 400px;"> <!--Crear los estilos de la card-->
+    <div class="image" style="width: 250px; height: 200px;"> <!--Crear los estilos de la imagen-->
+      <a [routerLink]="['/detallesPersonaje', personaje.id ]" ><img [src]="personaje.image" [alt]="personaje.name" class="card-img-top"/></a>
+    </div>
+    <div class="card-inner">
+      <div class="header">
+        <a [routerLink]="['/detallesPersonaje', personaje.id ]"><!--Crear los estilos del texto -->
+          <h2>personaje.name</h2>
+        </a>
+          <h4 class="text-muted">personaje.gender</h4>
+          <small class="text-muted">personaje.created</small>
+      </div>
+
+    </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 mt-10  container-notFound">
+
+    No se ha encontrado...
+
+  </div>
+</div>
+</body>
+

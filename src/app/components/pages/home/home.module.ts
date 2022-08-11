@@ -1,4 +1,3 @@
-import { ListaDePersonajesModule } from './../personajes/lista-de-personajes/lista-de-personajes.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
@@ -13,7 +12,7 @@ import { PersonajesModule } from '../personajes/personajes.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ListaDePersonajesModule
+    PersonajesModule
 
 
   ]
