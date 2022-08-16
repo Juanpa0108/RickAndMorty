@@ -1,5 +1,5 @@
+import { Personaje } from './../interface/personaje.interface';
 import { environment } from './../../../environments/environment';
-import { Personaje } from '@shared/interface/personaje.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -20,7 +20,10 @@ export class PersonajeServicioService {
   darDetalles(id:number)
   {
 
-    return this.http.get<Personaje>(`${environment.baseUrlAPI}7${id}`)
+    return this.http.get<Personaje>(`${environment.baseUrlAPI}${id}`)
+
+  }
+  obtenerLocation(){
 
   }
 }

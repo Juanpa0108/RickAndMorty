@@ -7,3 +7,11 @@
    box-shadow: aquamarine 7px 7px 5px;
 
   }
+
+button{
+  box-shadow: aquamarine 7px 7px 5px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-weight: bold;
+  color: withe;
+}

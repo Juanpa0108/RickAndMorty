@@ -1,3 +1,4 @@
+interface RickAndMortyCharacterLocation { name: string; url: string };
 export interface Personaje{
   id : number;
   name : string;
@@ -6,4 +7,5 @@ export interface Personaje{
   gender : string;
   created : string;
   status : string;
+  location : RickAndMortyCharacterLocation;
 }

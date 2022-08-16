@@ -1,7 +1,8 @@
 import { PersonajeServicioService } from './../../../../shared/services/personaje-servicio.service';
 import { Personaje } from '@shared/interface/personaje.interface';
 import { Component, OnInit } from '@angular/core';
-import {take} from 'rxjs/operators';
+import {filter, take} from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 type RequestInfo={
   next:any;
@@ -29,23 +30,62 @@ export class ListaDePersonajesComponent implements OnInit {
   private mostrarScroll=500;
 
 
-  constructor(private personajeServicio:PersonajeServicioService) { }
+
+  constructor(private personajeServicio:PersonajeServicioService, private router:ActivatedRoute, private ruta:Router) {
+    this.urlCambio();
+   }
 
   ngOnInit(): void {
-    this.obtenerInformacion();
+    this.buscarPersonaje();
   }
 
-  private obtenerInformacion():void
+
+
+
+  public urlCambio(){
+
+    this.ruta.events.pipe(
+      filter((event)=>event instanceof NavigationEnd)).subscribe(()=>{
+        this.personajes=[];
+        this.numeroPagina=1;
+        this.buscarPersonaje();
+      })
+
+  }
+
+  public buscarPersonaje(){
+
+    this.router.queryParams.pipe(take(1)).subscribe((params:any)=>{
+
+      console.log(params);
+      this.query = params['q'];
+      this.obtenerInformacion();
+
+    })
+
+
+
+  }
+
+
+  public obtenerInformacion()
   {
       this.personajeServicio.buscarPersonaje(this.query, this.numeroPagina)
       .pipe(
         take(1)
       ).subscribe((res:any)=>{
-        console.log(res);
-        const {info, results} =res;
-        this.personajes = [...this.personajes, ...results];
+        if(res?.results?.length){
+          const {info, results} =res;
+        this.personajes = [...results];
         this.info=info;
-      })
+
+        }else{
+
+          this.personajes=[];
+        }
+
+
+      });
   }
 
 }

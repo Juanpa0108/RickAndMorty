@@ -1,21 +1,32 @@
-<div class="row g-0">
+<div class="row g-0 ">
   <div class="col-6 p-3" *ngFor="let personaje of personajes">
-    <div class="card" >
+    <div class="card" [routerLink]="['/detallesPersonaje', personaje.id ]">
     <div class="image">
-      <a [routerLink]="['/detallesPersonaje', personaje.id ]" ><img [src]="personaje.image" [alt]="personaje.name" class="card-img-top"/></a>
+      <a><img [src]="personaje.image" [alt]="personaje.name" class="card-img-top"/></a>
     </div>
     <div class="card-inner">
       <div class="header">
-        <a [routerLink]="['/detallesPersonaje', personaje.id ]"><!--Crear los estilos del texto -->
-          <h3>personaje.name</h3>
+        <a>
+          <h3>{{personaje.name | slice: 0:15}}</h3>
         </a>
-          <h5 class="text-muted">personaje.gender</h5>
-          <small class="text-muted">personaje.created</small>
+          <h5>{{personaje.gender}}</h5>
+          <h6 *ngIf="personaje.status=='Alive'" [ngStyle]="{color: '#8DD330'}">{{personaje.status}}</h6>
+          <h6 *ngIf="personaje.status=='Dead'" [ngStyle]="{color: 'red'}">{{personaje.status}}</h6>
+          <h6 *ngIf="personaje.status!='Alive'&& personaje.status!='Dead'" [ngStyle]="{color: 'grey'}">{{personaje.status}}</h6>
+          <h6 style="margin-bottom: 25px;">{{personaje.species}}</h6>
+          <small>{{personaje.location.name}}</small>
+
       </div>
+
 
     </div>
     </div>
   </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 mt-5" *ngIf="personajes.length<=0">
+    <p>No se encontraron resultados para tu busqueda</p>
+
+  </div>
+
 </div>
 
 

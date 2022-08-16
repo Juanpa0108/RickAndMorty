@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-buscador',
@@ -9,9 +10,9 @@ import { Router } from '@angular/router';
     autofocus
     type="text"
     class="form-control-lg"
-    placeholder="Buscar"
-    (keyup)="aBuscar(buscar.value)"
+    placeholder="Personaje"
     />
+    <button (click)="aBuscar(buscar.value)">Buscar</button>
   `,
   styleUrls: ['./buscador.component.css']
 })
@@ -23,7 +24,6 @@ export class BuscadorComponent implements OnInit {
   }
   aBuscar(value:string)
   {
-    console.log(value)
       if(value && value.length > 3)
       {
           this.router.navigate(['/listaDePersonajes'], {
@@ -32,5 +32,4 @@ export class BuscadorComponent implements OnInit {
       }
 
   }
-
 }
