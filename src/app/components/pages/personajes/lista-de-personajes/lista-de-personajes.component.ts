@@ -1,11 +1,11 @@
 import { PersonajeServicioService } from './../../../../shared/services/personaje-servicio.service';
 import { Personaje } from '@shared/interface/personaje.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import {filter, take} from 'rxjs/operators';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-
+import {DOCUMENT} from '@angular/common'
 type RequestInfo={
-  next:any;
+  next: any;
 };
 
 
@@ -21,6 +21,8 @@ export class ListaDePersonajesComponent implements OnInit {
     next : null,
   };
 
+  showGoUpButton = false;
+
   private numeroPagina =1;
 
   private query!:string ;
@@ -31,7 +33,11 @@ export class ListaDePersonajesComponent implements OnInit {
 
 
 
-  constructor(private personajeServicio:PersonajeServicioService, private router:ActivatedRoute, private ruta:Router) {
+  constructor(
+    @Inject(DOCUMENT) private document:Document,
+    private personajeServicio:PersonajeServicioService,
+    private router:ActivatedRoute,
+    private ruta:Router) {
     this.urlCambio();
    }
 
@@ -39,7 +45,29 @@ export class ListaDePersonajesComponent implements OnInit {
     this.buscarPersonaje();
   }
 
+/*
+  @HostListener('window:scroll', [])
+  onWindowScroll(){
+    const yOffSet = window.pageYOffset;
+    if((yOffSet || this.document.documentElement.scrollTop || this.document.body.scrollTop) > this.mostrarScroll){
+      this.showGoUpButton = true;
+    }else if(this.showGoUpButton && (yOffSet || this.document.documentElement.scrollTop || this.document.body.scrollTop) < this.esconderScroll){
+      this.showGoUpButton = false;
+    }
+  }
+*/
+  onScrollDown(){
+    if(this.info.next){
+      this.numeroPagina+1;
+      this.obtenerInformacion();
+    }
+  }
 
+  onScrollUp(){
+    this.document.body.scrollTop=0;
+    this.document.documentElement.scrollTop=0;
+
+  }
 
 
   public urlCambio(){

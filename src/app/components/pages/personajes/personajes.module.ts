@@ -3,6 +3,7 @@ import { DetallesPersonajeComponent } from '@personajes/detalles-personaje/detal
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const myDeclaration = [DetallesPersonajeComponent, ListaDePersonajesComponent]
 
@@ -10,7 +11,8 @@ const myDeclaration = [DetallesPersonajeComponent, ListaDePersonajesComponent]
   declarations: [ ... myDeclaration],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    InfiniteScrollModule
   ],
   exports:[... myDeclaration]
 })

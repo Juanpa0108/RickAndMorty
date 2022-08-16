@@ -1,4 +1,4 @@
-<div class="row g-0 ">
+<div class="row g-0 " infinite-scroll (scrolled)="onScrollDown()">
   <div class="col-6 p-3" *ngFor="let personaje of personajes">
     <div class="card" [routerLink]="['/detallesPersonaje', personaje.id ]">
     <div class="image">
@@ -28,5 +28,12 @@
   </div>
 
 </div>
+<!--<button
+ [ngClass]="'no-hidden'"
+*ngIf="showGoUpButton"
+clas="btn btn-dark"
+(click)="onScrollUp()">
+  Subir
+</button>
 
-
+-->
