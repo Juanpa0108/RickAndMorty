@@ -1,5 +1,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~normalize.css/normalize.css';
+
+body{
+  height: 100vh;
+}
+
 .container{
   margin-top: 4rem;
 }

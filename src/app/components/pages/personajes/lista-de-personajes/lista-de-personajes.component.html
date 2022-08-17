@@ -1,14 +1,12 @@
-<div class="row g-0 " infinite-scroll (scrolled)="onScrollDown()">
-  <div class="col-6 p-3" *ngFor="let personaje of personajes">
-    <div class="card" [routerLink]="['/detallesPersonaje', personaje.id ]">
-    <div class="image">
-      <a><img [src]="personaje.image" [alt]="personaje.name" class="card-img-top"/></a>
+<div class=" " infinite-scroll (scrolled)="onScrollDown()">
+  <div class="" *ngFor="let personaje of personajes">
+    <div class="tarjeta" [routerLink]="['/detallesPersonaje', personaje.id ]">
+    <div class="imagen">
+      <img [src]="personaje.image" [alt]="personaje.name"/>
     </div>
-    <div class="card-inner">
+    <div>
       <div class="header">
-        <a>
           <h3>{{personaje.name | slice: 0:15}}</h3>
-        </a>
           <h5>{{personaje.gender}}</h5>
           <h6 *ngIf="personaje.status=='Alive'" [ngStyle]="{color: '#8DD330'}">{{personaje.status}}</h6>
           <h6 *ngIf="personaje.status=='Dead'" [ngStyle]="{color: 'red'}">{{personaje.status}}</h6>
@@ -22,18 +20,12 @@
     </div>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-12 col-md-12 mt-5" *ngIf="personajes.length<=0">
+  <div *ngIf="personajes.length<=0">
     <p>No se encontraron resultados para tu busqueda</p>
 
   </div>
 
 </div>
-<button
- [ngClass]="'no-hidden'"
-*ngIf="showGoUpButton"
-clas="btn btn-dark"
-(click)="onScrollUp()">
-  Subir
-</button>
+
 
 
