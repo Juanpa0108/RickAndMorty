@@ -45,7 +45,7 @@ export class ListaDePersonajesComponent implements OnInit {
     this.buscarPersonaje();
   }
 
-/*
+
   @HostListener('window:scroll', [])
   onWindowScroll(){
     const yOffSet = window.pageYOffset;
@@ -55,10 +55,10 @@ export class ListaDePersonajesComponent implements OnInit {
       this.showGoUpButton = false;
     }
   }
-*/
+
   onScrollDown(){
     if(this.info.next){
-      this.numeroPagina+1;
+      this.numeroPagina++;
       this.obtenerInformacion();
     }
   }
@@ -104,7 +104,7 @@ export class ListaDePersonajesComponent implements OnInit {
       ).subscribe((res:any)=>{
         if(res?.results?.length){
           const {info, results} =res;
-        this.personajes = [...results];
+        this.personajes = [...this.personajes, ...results];
         this.info=info;
 
         }else{
