@@ -1,1 +1,58 @@
+span{
+  font-weight: bold;
+}
 
+h3{
+    font-size: 22px;
+  }
+
+h5{
+    margin-top: 25px;
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+h6{
+    margin-top: 25px;
+  }
+
+img{
+    padding-top: 60px;
+    width: 250px;
+    height: 280px;
+    padding-left: 25px;
+  }
+
+
+
+  .tarjeta{
+    border: rgb(39, 43, 73) groove 2px;
+    margin-top: 40px;
+    width: 700px;
+    height: 350px;
+    margin-left: 35px;
+    display: -webkit-inline-box;
+    display: -o-inline-box;
+    display: -moz-inline-box;
+    border-radius: 25px;
+    background-color: white;
+
+  }
+
+  .tarjeta:hover{
+    transition: transform ease 1s;
+    transform: scale(1.1);
+    filter: saturate(180%);
+  }
+
+  .header{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 18px;
+    width: 367px;
+  }
+
+  .orden{
+    text-align: center;
+    padding-top: 110px;
+  }

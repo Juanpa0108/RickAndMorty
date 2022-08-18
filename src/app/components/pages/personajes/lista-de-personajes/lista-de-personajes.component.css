@@ -18,6 +18,20 @@ h6{
   margin-top: 25px;
 }
 
+img{
+  width: 250px;
+  height: 246px;
+  background-size: contain;
+  border-radius: 25px;
+
+}
+
+
+p{
+  font-size: 180px;
+}
+
+
 .tarjeta{
   border: rgb(39, 43, 73) groove 2px;
   margin-top: 40px;
@@ -33,13 +47,9 @@ h6{
  /* float: left; //Forma para poner que queden de a dos, pero hay un problema con la pintura del body y no se forma el scroll infinito */
 
 }
-
-img{
-  width: 230px;
-  height: 246px;
-  background-size: contain;
-  border-radius: 25px;
-
+.mensaje{
+  padding-top: 80px;
+  text-align: center;
 }
 
 .tarjeta:hover{

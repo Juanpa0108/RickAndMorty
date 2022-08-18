@@ -1,23 +1,24 @@
-<div class="row g-0 justify-content-center" *ngIf="personaje$ | async as personaje">
-    <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top: 100px;">
-      <h1 style="text-align: center;">{{personaje.name}}</h1>
-       <div class="card">
-         <div class="image">
-              <img
-              [src]="personaje.image"
-              [alt]="personaje.name"
-              />
-              </div>
-         <div class="card-inner">
-           <div class="header">
-                <h2>{{personaje.name | slice:0:15}}</h2>
-             <h4 class="text-muted">{{personaje.gender}}</h4>
-              <small class="text-muted">{{personaje.location.name}}</small>
-           </div>
+<div class="orden">
+  <div class="tarjeta" *ngIf="personaje$ | async as personaje">
+    <div class="imagen">
+      <img [src]="personaje.image" [alt]="personaje.name"/>
+    </div>
+    <div>
+      <div class="header">
+          <h3><span>Nombre:</span> {{personaje.name | slice: 0:15}}</h3>
+          <h5><span>Genero: </span>{{personaje.gender}}</h5>
+          <h6><span>Estado: </span>{{personaje.status}}</h6>
+          <h6><span>Especie: </span>{{personaje.species}}</h6>
+          <h6><span>Locacion: </span>{{personaje.location.name}}</h6>
+          <h6><span>Origen: </span>{{personaje.origin.name}}</h6>
+          <h6><span>Creado: </span>{{personaje.created | date}}</h6>
+
       </div>
+
+
+    </div>
     </div>
   </div>
-</div>
 
 
 

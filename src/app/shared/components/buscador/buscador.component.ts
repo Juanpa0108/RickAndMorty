@@ -9,13 +9,14 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
     #buscar
     autofocus
     type="text"
-    class="form-control-lg"
+    class="buscador"
     placeholder="Personaje"
     />
     <button (click)="aBuscar(buscar.value)">Buscar</button>
   `,
   styleUrls: ['./buscador.component.css']
 })
+
 export class BuscadorComponent implements OnInit {
 
   constructor(private router:Router) { }
@@ -24,12 +25,8 @@ export class BuscadorComponent implements OnInit {
   }
   aBuscar(value:string)
   {
-      if(value && value.length > 3)
-      {
           this.router.navigate(['/listaDePersonajes'], {
             queryParams:{q:value}
           })
-      }
-
   }
 }

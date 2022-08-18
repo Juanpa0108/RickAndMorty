@@ -1,9 +1,10 @@
 import { PersonajeServicioService } from './../../../../shared/services/personaje-servicio.service';
-import { Personaje } from '@shared/interface/personaje.interface';
+
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import {filter, take} from 'rxjs/operators';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import {DOCUMENT} from '@angular/common'
+import { Personaje } from 'src/app/shared/interface/personaje.interface';
 type RequestInfo={
   next: any;
 };
@@ -85,7 +86,6 @@ export class ListaDePersonajesComponent implements OnInit {
 
     this.router.queryParams.pipe(take(1)).subscribe((params:any)=>{
 
-      console.log(params);
       this.query = params['q'];
       this.obtenerInformacion();
 

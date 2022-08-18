@@ -1,9 +1,9 @@
 import { take } from 'rxjs/operators';
 import { PersonajeServicioService } from './../../../../shared/services/personaje-servicio.service';
 import { ActivatedRoute } from '@angular/router';
-import { Personaje } from '@shared/interface/personaje.interface';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Personaje } from '@app/shared/interface/personaje.interface';
 
 @Component({
   selector: 'app-detalles-personaje',
