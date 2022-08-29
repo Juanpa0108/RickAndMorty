@@ -19,10 +19,9 @@ h6{
 }
 
 img{
-  width: 250px;
-  height: 246px;
+  height: 100%;
   background-size: contain;
-  border-radius: 25px;
+  border-radius: 25px 0 0 25px;
 
 }
 
@@ -34,17 +33,14 @@ p{
 
 .tarjeta{
   border: rgb(39, 43, 73) groove 2px;
-  margin-top: 40px;
   width: 600px;
   height: 250px;
-  margin-left: 35px;
   display: -webkit-inline-box;
   display: -o-inline-box;
   display: -moz-inline-box;
   border-radius: 25px;
   background-color: white;
-
- /* float: left; //Forma para poner que queden de a dos, pero hay un problema con la pintura del body y no se forma el scroll infinito */
+  cursor: pointer;
 
 }
 .mensaje{
@@ -55,16 +51,71 @@ p{
 .tarjeta:hover{
   box-shadow: aquamarine 7px 7px 6px;
   transition: transform ease 1s;
-  transform: scale(1.1);
+  transform: scale(1.05);
   filter: saturate(180%);
   background-color: #85F0EE;
 }
 
 .header{
-  margin-top: 10px;
   text-align: center;
   font-size: 18px;
-  width: 367px;
+}
+
+.container-scroll{
+    display: grid;
+    grid-template-columns: repeat(2, 600px);
+    gap: 26px;
+    justify-content: center;
+    padding: 16px;
+}
+
+.content-tarjeta{
+  display: flex;
+    justify-content: center;
+    width: calc( 100% - 186px);
+    height: 100%;
 }
 
 
+
+@media (max-width: 1260px) {
+  .container-scroll{
+    grid-template-columns: 600px;
+  }
+}
+
+@media (max-width: 658px) {
+  .container-scroll{
+    grid-template-columns: auto;
+    gap: 15px;
+  }
+  .tarjeta {
+    width: 400px;
+    height: 190px;
+  }
+  .tarjeta:hover{
+    transform: scale(0.8);
+  }h5{
+    margin-top: 0;
+    margin-bottom: 0;
+  }h6{
+    margin-top: 0;
+  }
+}
+
+.modal{
+  position: fixed;
+  z-index: 99;
+  background-color: rgba(black,0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.content-modal{
+  background-color: white;
+  padding: 10px;
+}

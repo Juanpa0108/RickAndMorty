@@ -5,6 +5,7 @@ import {filter, take} from 'rxjs/operators';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import {DOCUMENT} from '@angular/common'
 import { Personaje } from 'src/app/shared/interface/personaje.interface';
+import { Observable } from 'rxjs';
 type RequestInfo={
   next: any;
 };
@@ -31,6 +32,10 @@ export class ListaDePersonajesComponent implements OnInit {
   private esconderScroll=200;
 
   private mostrarScroll=500;
+
+   mostrar=false;
+
+   personaje$!:Observable<Personaje>;
 
 
 
@@ -70,6 +75,11 @@ export class ListaDePersonajesComponent implements OnInit {
 
   }
 
+
+public mostrarDetalles(){
+  this.mostrar=true;
+
+}
 
   public urlCambio(){
 

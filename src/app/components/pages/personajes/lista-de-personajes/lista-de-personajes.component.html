@@ -1,10 +1,10 @@
-<div infinite-scroll (scrolled)="onScrollDown()">
-  <div  *ngFor="let personaje of personajes">
-    <div class="tarjeta" [routerLink]="['/detallesPersonaje', personaje.id ]">
+<div infinite-scroll (scrolled)="onScrollDown()" class="container-scroll">
+  <ng-container *ngFor="let personaje of personajes">
+    <div class="tarjeta" (click)="mostrarDetalles()">
     <div class="imagen">
       <img [src]="personaje.image" [alt]="personaje.name"/>
     </div>
-    <div>
+    <div class="content-tarjeta">
       <div class="header">
           <h3>{{personaje.name | slice: 0:15}}</h3>
           <h5>{{personaje.gender}}</h5>
@@ -19,7 +19,7 @@
 
     </div>
     </div>
-  </div>
+  </ng-container>
   <div *ngIf="personajes.length<=0" class="mensaje">
     <svg xmlns="http://www.w3.org/2000/svg" width="210" height="210" fill="currentColor" class="bi bi-emoji-frown" viewBox="0 0 16 16">
       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -31,6 +31,12 @@
   </div>
 
 </div>
+
+<!-- <div class="modal" *ngIf="mostrar">
+  <div class="content-modal" *ngFor="let personaje of personajes">
+    <img [src]="personaje.image" [alt]="personaje.name"/>
+  </div>
+</div> -->
 
 
 
