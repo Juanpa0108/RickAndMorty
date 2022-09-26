@@ -63,4 +63,22 @@ button{
   }
 }
 
+@media (max-width: 587px) {
+  .buscador{
+    width: 125px;
+    height: 20px;
+    text-indent: 0;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 540px) {
+  .buscador{
+    width: 110px;
+    height: 20px;
+    text-indent: 0;
+    font-size: 9px;
+  }
+}
+
 

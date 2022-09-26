@@ -38,13 +38,18 @@
 
 @media (max-width: 426px) {
   .texto{
-    font-size: 15px;
+    font-size: 13px;
+  }
+  .rick{
+    width: 85px;
+    height: 38px;
   }
 }
 
 @media (max-width: 477px) {
-  .texto{
-    font-size: 22px;
+  .rick{
+    width: 90px;
+    height: 46px;
   }
 }
 
@@ -57,6 +62,19 @@
 @media (max-width: 664px) {
   .texto{
     font-size: 24px;
+  }
+}
+
+@media (max-width: 562px) {
+  .rick{
+    width: 90px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 487px) {
+  .texto{
+    font-size: 14px;
   }
 }
 

@@ -1,6 +1,6 @@
 <div infinite-scroll (scrolled)="onScrollDown()" class="container-scroll">
   <ng-container *ngFor="let personaje of personajes">
-    <div class="tarjeta" (click)="mostrarDetalles()">
+    <div class="tarjeta" (click)="mostrarDetalles()" [routerLink]="['/detallesPersonaje', personaje.id]" >
     <div class="imagen">
       <img [src]="personaje.image" [alt]="personaje.name"/>
     </div>
@@ -31,10 +31,10 @@
   </div>
 
 </div>
-
-<!-- <div class="modal" *ngIf="mostrar">
-  <div class="content-modal" *ngFor="let personaje of personajes">
-    <img [src]="personaje.image" [alt]="personaje.name"/>
+<!--
+<div class="modal" *ngIf="mostrar">
+  <div class="content-modal"  *ngIf="personaje$ | async as personaje">
+     <img [src]="personaje.image" [alt]="personaje.name"/>
   </div>
 </div> -->
 

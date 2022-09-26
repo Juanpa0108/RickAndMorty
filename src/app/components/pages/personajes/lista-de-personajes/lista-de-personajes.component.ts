@@ -35,7 +35,12 @@ export class ListaDePersonajesComponent implements OnInit {
 
    mostrar=false;
 
-   personaje$!:Observable<Personaje>;
+  personaje$!:Observable<Personaje>
+
+  id!:number;
+
+
+
 
 
 
@@ -50,6 +55,7 @@ export class ListaDePersonajesComponent implements OnInit {
   ngOnInit(): void {
     this.buscarPersonaje();
   }
+
 
 
   @HostListener('window:scroll', [])
@@ -77,7 +83,15 @@ export class ListaDePersonajesComponent implements OnInit {
 
 
 public mostrarDetalles(){
+  this.router.params.pipe(take(1)).subscribe((params)=>{
+    this.id = params['id'];
+    this.personaje$ = this.personajeServicio.darDetalles(this.id);
+    console.log(this.personaje$);
+    console.log(this.id);
+  });
   this.mostrar=true;
+
+
 
 }
 
@@ -125,5 +139,6 @@ public mostrarDetalles(){
 
       });
   }
+
 
 }
